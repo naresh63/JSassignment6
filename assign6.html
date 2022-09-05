@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>JS assign 6</h1>
+
+    <script>
+      //1.
+      class Rectangle {
+        constructor(length, breadth) {
+          this.length = length;
+          this.breadth = breadth;
+        }
+        area() {
+          return this.length * this.breadth;
+        }
+      }
+      let objRecta = new Rectangle(3, 4);
+      console.log(objRecta.area());
+
+      // subclass
+      class Square extends Rectangle {
+        constructor(s) {
+          super(s);
+          this.length = s;
+          this.breadth = s;
+        }
+      }
+      let objSquare = new Square(2);
+      console.log(objSquare.area());
+
+      //2. find 3rd largest form array.
+
+      let arr = [3, 45, 6, 7, 23, 5, 7, 8];
+      arr.sort(function (a, b) {
+        return b - a;
+      });
+      console.log(arr);
+      let count = 0;
+      for (let i = 0; i < arr.length; i++) {
+        count++;
+        if (count === 3) {
+          console.log(arr[i], "is 3rd largest num");
+        }
+      }
+
+      //3.
+      function insertDash(num) {
+        let str = num.toString();
+        let result = [0, "-"];
+        for (let i = 0; i < str.length; i++) {
+          if (str[i - 1] % 2 === 0 && str[i] % 2 === 0) {
+            result.push("-", str[i]);
+          } else {
+            result.push(str[i]);
+          }
+        }
+        console.log(result.join(""));
+      }
+      insertDash(025468);
+    </script>
+  </body>
+</html>
